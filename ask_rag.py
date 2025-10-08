@@ -126,7 +126,18 @@ def ask():
             "source": h.get("source"),
             "score": h.get("score"),
         })
-    return jsonify({"answer": answer, "sources": sources, "k": k})
+# --- Formateo de fuentes (título, URL y score redondeado) ---
+sources_fmt = []
+for s in sources:
+    sources_fmt.append({
+        "id": s.get("id"),
+        "source": s.get("source"),
+        "score": round(float(s.get("score", 0)), 3),
+        "title": s.get("title") or s.get("article_title") or s.get("subject") or None,
+        "url": s.get("url") or s.get("article_url") or None,
+    })
+
+return jsonify({"answer": answer, "sources": sources_fmt, "k": k})
 
 @app.route("/health", methods=["GET"])
 def health():
