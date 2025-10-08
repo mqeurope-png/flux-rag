@@ -1,0 +1,4 @@
+flask
+annoy
+openai>=1.0.0
+gunicorn

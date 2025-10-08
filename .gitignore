@@ -1,0 +1,8 @@
+.ragenv/
+.venv/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+
+# Si más tarde generas ficheros grandes, añádelos aquí.

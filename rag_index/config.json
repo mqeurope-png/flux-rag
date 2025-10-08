@@ -1,0 +1,1 @@
+{"emb_model": "text-embedding-3-large", "emb_dim": 3072, "built_at": 1759935656.268489, "chunk_tokens": 800, "overlap": 120}
