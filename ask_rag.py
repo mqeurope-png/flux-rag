@@ -8,7 +8,7 @@ from annoy import AnnoyIndex
 from openai import OpenAI
 
 # --- Rutas del índice ---
-DATA_DIR   = "/Users/edu/Proyectos/keywords_excel/rag_index"
+DATA_DIR   = "rag_index"
 INDEX_PATH = os.path.join(DATA_DIR, "annoy.index")
 META_PATH  = os.path.join(DATA_DIR, "metadata.jsonl")
 CONF_PATH  = os.path.join(DATA_DIR, "config.json")
