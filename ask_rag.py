@@ -91,6 +91,18 @@ def build_prompt(question: str, contexts):
     ]
 
 app = Flask(__name__)
+API_TOKEN = os.getenv("API_TOKEN", "")
+
+def check_auth(req):
+    # Espera el header: X-API-KEY: <tu_token>
+    return API_TOKEN and req.headers.get("X-API-KEY") == API_TOKEN
+
+# ...y en el endpoint /ask añade el check:
+@app.route("/ask", methods=["POST"])
+def ask():
+    if not check_auth(request):
+        return jsonify({"error": "unauthorized"}), 401
+    # (resto de tu código igual)
 
 @app.route("/ask", methods=["POST"])
 def ask():
