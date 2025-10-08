@@ -6,6 +6,15 @@ from typing import List, Dict, Any
 from flask import Flask, request, jsonify
 from annoy import AnnoyIndex
 from openai import OpenAI
+import os
+import json
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RAG_DIR = os.environ.get("RAG_DIR", os.path.join(BASE_DIR, "rag_index"))
+
+CONF_PATH = os.path.join(RAG_DIR, "config.json")
+ANNOY_PATH = os.path.join(RAG_DIR, "annoy.index")
+META_PATH  = os.path.join(RAG_DIR, "metadata.jsonl")
 
 # --- Rutas del índice ---
 DATA_DIR   = "rag_index"
